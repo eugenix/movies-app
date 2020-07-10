@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.learnwiremock.service.MoviesRestClientServerFaultTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-07-10T11:24:51" hostname="Kurbatovs-iMac.local" time="10.154">
+  <properties/>
+  <testcase name="retrieveAllMovies_503_serviceUnAvailable()" classname="com.learnwiremock.service.MoviesRestClientServerFaultTest" time="0.027"/>
+  <testcase name="retrieveAllMovies_fixedDelay()" classname="com.learnwiremock.service.MoviesRestClientServerFaultTest" time="5.022"/>
+  <testcase name="retrieveAllMovies_RandomDelay()" classname="com.learnwiremock.service.MoviesRestClientServerFaultTest" time="5.029"/>
+  <testcase name="retrieveAllMovies_FaultResponse()" classname="com.learnwiremock.service.MoviesRestClientServerFaultTest" time="0.024"/>
+  <testcase name="retrieveAllMovies_RandomDataThenClose()" classname="com.learnwiremock.service.MoviesRestClientServerFaultTest" time="0.02"/>
+  <testcase name="retrieveAllMovies()" classname="com.learnwiremock.service.MoviesRestClientServerFaultTest" time="0.022"/>
+  <system-out><![CDATA[2020-07-10 14:24:51.951 Verbose logging enabled
+baseUrl : http://localhost:8088/
+2020-07-10 14:24:51.958 Received request to /mappings with body {
+  "id" : "90a835d2-bea8-4a94-9918-daa0651115f6",
+  "request" : {
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 503,
+    "body" : "Service Unavailable"
+  },
+  "uuid" : "90a835d2-bea8-4a94-9918-daa0651115f6"
+}
+2020-07-10 14:24:51.975 Request received:
+127.0.0.1 - GET /movieservice/v1/allMovies
+
+User-Agent: [ReactorNetty/0.8.9.RELEASE]
+Accept: [*/*]
+Host: [localhost:8088]
+
+
+
+Matched response definition:
+{
+  "status" : 503,
+  "body" : "Service Unavailable"
+}
+
+Response:
+HTTP/1.1 503
+Matched-Stub-Id: [90a835d2-bea8-4a94-9918-daa0651115f6]
+
+
+2020-07-10 14:24:51.980 Verbose logging enabled
+baseUrl : http://localhost:8088/
+2020-07-10 14:24:51.986 Received request to /mappings with body {
+  "id" : "d7399c96-1dfa-4615-ab23-1126477f2a45",
+  "request" : {
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "fixedDelayMilliseconds" : 10000
+  },
+  "uuid" : "d7399c96-1dfa-4615-ab23-1126477f2a45"
+}
+2020-07-10 14:24:51.996 Request received:
+127.0.0.1 - GET /movieservice/v1/allMovies
+
+User-Agent: [ReactorNetty/0.8.9.RELEASE]
+Accept: [*/*]
+Host: [localhost:8088]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "fixedDelayMilliseconds" : 10000
+}
+
+Response:
+HTTP/1.1 200
+Matched-Stub-Id: [d7399c96-1dfa-4615-ab23-1126477f2a45]
+
+
+2020-07-10 14:24:57.003 Verbose logging enabled
+baseUrl : http://localhost:8088/
+2020-07-10 14:24:57.012 Received request to /mappings with body {
+  "id" : "c27a410e-adbe-4111-b541-4a13c4a68247",
+  "request" : {
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "delayDistribution" : {
+      "type" : "uniform",
+      "lower" : 6000,
+      "upper" : 10000
+    }
+  },
+  "uuid" : "c27a410e-adbe-4111-b541-4a13c4a68247"
+}
+2020-07-10 14:24:57.026 Request received:
+127.0.0.1 - GET /movieservice/v1/allMovies
+
+User-Agent: [ReactorNetty/0.8.9.RELEASE]
+Accept: [*/*]
+Host: [localhost:8088]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "delayDistribution" : {
+    "type" : "uniform",
+    "lower" : 6000,
+    "upper" : 10000
+  }
+}
+
+Response:
+HTTP/1.1 200
+Matched-Stub-Id: [c27a410e-adbe-4111-b541-4a13c4a68247]
+
+
+2020-07-10 14:25:02.034 Verbose logging enabled
+baseUrl : http://localhost:8088/
+2020-07-10 14:25:02.043 Received request to /mappings with body {
+  "id" : "d73f8b3c-a4d6-4af4-a280-034fbedd1e22",
+  "request" : {
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "fault" : "EMPTY_RESPONSE"
+  },
+  "uuid" : "d73f8b3c-a4d6-4af4-a280-034fbedd1e22"
+}
+2020-07-10 14:25:02.056 Request received:
+127.0.0.1 - GET /movieservice/v1/allMovies
+
+User-Agent: [ReactorNetty/0.8.9.RELEASE]
+Accept: [*/*]
+Host: [localhost:8088]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "fault" : "EMPTY_RESPONSE"
+}
+
+Response:
+HTTP/1.1 200
+Matched-Stub-Id: [d73f8b3c-a4d6-4af4-a280-034fbedd1e22]
+
+
+2020-07-10 14:25:02.061 Verbose logging enabled
+baseUrl : http://localhost:8088/
+2020-07-10 14:25:02.068 Received request to /mappings with body {
+  "id" : "cab21510-dde6-4534-b766-bbbb4ea81476",
+  "request" : {
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "fault" : "RANDOM_DATA_THEN_CLOSE"
+  },
+  "uuid" : "cab21510-dde6-4534-b766-bbbb4ea81476"
+}
+2020-07-10 14:25:02.078 Request received:
+127.0.0.1 - GET /movieservice/v1/allMovies
+
+User-Agent: [ReactorNetty/0.8.9.RELEASE]
+Accept: [*/*]
+Host: [localhost:8088]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "fault" : "RANDOM_DATA_THEN_CLOSE"
+}
+
+Response:
+HTTP/1.1 200
+Matched-Stub-Id: [cab21510-dde6-4534-b766-bbbb4ea81476]
+
+
+2020-07-10 14:25:02.082 Verbose logging enabled
+baseUrl : http://localhost:8088/
+2020-07-10 14:25:02.090 Received request to /mappings with body {
+  "id" : "a716f5fb-4da1-4c46-a0ec-69a672fef46b",
+  "request" : {
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 500
+  },
+  "uuid" : "a716f5fb-4da1-4c46-a0ec-69a672fef46b"
+}
+2020-07-10 14:25:02.101 Request received:
+127.0.0.1 - GET /movieservice/v1/allMovies
+
+User-Agent: [ReactorNetty/0.8.9.RELEASE]
+Accept: [*/*]
+Host: [localhost:8088]
+
+
+
+Matched response definition:
+{
+  "status" : 500
+}
+
+Response:
+HTTP/1.1 500
+Matched-Stub-Id: [a716f5fb-4da1-4c46-a0ec-69a672fef46b]
+
+
+]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.eclipse.jetty.server.Server - jetty-9.2.24.v20180105
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4d6fceff{/__admin,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6c534cae{/,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@5ff87fed{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.Server - Started @3204ms
+[qtp1575795896-229] INFO /__admin - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+[qtp1575795896-230] INFO / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+[Test worker] ERROR com.learnwiremock.service.MoviesRestClient - WebClientResponseException in retrieveAllMovies. Status code is 503 and the message is Service Unavailable 
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@5ff87fed{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6c534cae{/,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4d6fceff{/__admin,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.Server - jetty-9.2.24.v20180105
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@41357cbe{/__admin,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@2093e9c7{/,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@77eb80af{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.Server - Started @3233ms
+[qtp1657010380-241] INFO /__admin - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+[qtp1657010380-242] INFO / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+[reactor-http-nio-4] WARN reactor.netty.http.client.HttpClientConnect - [id: 0x7b90f356, L:/127.0.0.1:52334 - R:localhost/127.0.0.1:8088] The connection observed an error
+io.netty.handler.timeout.ReadTimeoutException
+[Test worker] ERROR com.learnwiremock.service.MoviesRestClient - Exception in retrieveAllMovies and the message is nullio.netty.handler.timeout.ReadTimeoutException 
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@77eb80af{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@2093e9c7{/,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@41357cbe{/__admin,null,UNAVAILABLE}
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp1657010380{STOPPING,8<=8<=10,i=0,q=5} Couldn't stop Thread[qtp1657010380-242,5,main]
+[Test worker] INFO org.eclipse.jetty.server.Server - jetty-9.2.24.v20180105
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@1ca63144{/__admin,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@16124cf0{/,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@3b936367{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.Server - Started @8256ms
+[qtp1010131481-252] INFO /__admin - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+[qtp1010131481-253] INFO / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+[reactor-http-nio-3] WARN reactor.netty.http.client.HttpClientConnect - [id: 0x24b41d1a, L:/127.0.0.1:52340 - R:localhost/127.0.0.1:8088] The connection observed an error
+io.netty.handler.timeout.ReadTimeoutException
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:93)
+		at reactor.core.publisher.Mono.block(Mono.java:1494)
+		at com.learnwiremock.service.MoviesRestClient.retrieveAllMovies(MoviesRestClient.java:33)
+		at com.learnwiremock.service.MoviesRestClientServerFaultTest.lambda$retrieveAllMovies_fixedDelay$5(MoviesRestClientServerFaultTest.java:130)
+		at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
+		at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+		at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:2952)
+		at com.learnwiremock.service.MoviesRestClientServerFaultTest.retrieveAllMovies_fixedDelay(MoviesRestClientServerFaultTest.java:130)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+		at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+		at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+		at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+		at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+		at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+		at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+		at java.util.ArrayList.forEach(ArrayList.java:1257)
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+		at java.util.ArrayList.forEach(ArrayList.java:1257)
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+		at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+		at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+		at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:102)
+		at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:82)
+		at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:78)
+		at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+		at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+		at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+		at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+		at com.sun.proxy.$Proxy2.stop(Unknown Source)
+		at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:132)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+		at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+		at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:175)
+		at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:157)
+		at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+		at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+		at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+		at java.lang.Thread.run(Thread.java:748)
+[Test worker] ERROR com.learnwiremock.service.MoviesRestClient - Exception in retrieveAllMovies and the message is nullio.netty.handler.timeout.ReadTimeoutException 
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@3b936367{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@16124cf0{/,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@1ca63144{/__admin,null,UNAVAILABLE}
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp1010131481{STOPPING,8<=8<=10,i=0,q=4} Couldn't stop Thread[qtp1010131481-253,5,]
+[Test worker] INFO org.eclipse.jetty.server.Server - jetty-9.2.24.v20180105
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@524ed51d{/__admin,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@154b5d2e{/,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@318994a7{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.Server - Started @13288ms
+[qtp809587202-261] INFO /__admin - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+[qtp809587202-264] INFO / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+[reactor-http-nio-1] WARN reactor.netty.http.client.HttpClientConnect - [id: 0x2f6012e3, L:0.0.0.0/0.0.0.0:52347 ! R:localhost/127.0.0.1:8088] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+[Test worker] ERROR com.learnwiremock.service.MoviesRestClient - Exception in retrieveAllMovies and the message is reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE responsereactor.core.Exceptions$ReactiveException: reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response 
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@318994a7{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@154b5d2e{/,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@524ed51d{/__admin,null,UNAVAILABLE}
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp809587202{STOPPING,8<=8<=10,i=2,q=3} Couldn't stop Thread[qtp809587202-265,5,]
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp809587202{STOPPING,8<=8<=10,i=0,q=2} Couldn't stop Thread[qtp809587202-259,5,]
+[Test worker] INFO org.eclipse.jetty.server.Server - jetty-9.2.24.v20180105
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@31dd61d7{/__admin,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4c87e76b{/,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@168ee4f5{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.Server - Started @13314ms
+[qtp192711141-273] INFO /__admin - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+[qtp192711141-274] INFO / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+[reactor-http-nio-3] WARN reactor.netty.http.client.HttpClientConnect - [id: 0xd961ff51, L:0.0.0.0/0.0.0.0:52349 ! R:localhost/127.0.0.1:8088] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+[Test worker] ERROR com.learnwiremock.service.MoviesRestClient - Exception in retrieveAllMovies and the message is reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE responsereactor.core.Exceptions$ReactiveException: reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response 
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@168ee4f5{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4c87e76b{/,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@31dd61d7{/__admin,null,UNAVAILABLE}
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp192711141{STOPPING,8<=8<=10,i=4,q=6} Couldn't stop Thread[qtp192711141-271,5,]
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp192711141{STOPPING,8<=8<=10,i=4,q=6} Couldn't stop Thread[qtp192711141-275,5,main]
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp192711141{STOPPING,8<=8<=10,i=4,q=6} Couldn't stop Thread[qtp192711141-278,5,main]
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp192711141{STOPPING,8<=8<=10,i=4,q=6} Couldn't stop Thread[qtp192711141-272,5,main]
+[Test worker] WARN org.eclipse.jetty.util.thread.QueuedThreadPool - qtp192711141{STOPPING,8<=8<=10,i=4,q=6} Couldn't stop Thread[qtp192711141-276,5,main]
+[Test worker] INFO org.eclipse.jetty.server.Server - jetty-9.2.24.v20180105
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6910243{/__admin,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@387c4cb4{/,null,AVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@3671c2e2{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.Server - Started @13336ms
+[qtp1858498950-284] INFO /__admin - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+[qtp1858498950-285] INFO / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+[Test worker] ERROR com.learnwiremock.service.MoviesRestClient - WebClientResponseException in retrieveAllMovies. Status code is 500 and the message is  
+[Test worker] INFO org.eclipse.jetty.server.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@3671c2e2{HTTP/1.1}{0.0.0.0:8088}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@387c4cb4{/,null,UNAVAILABLE}
+[Test worker] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6910243{/__admin,null,UNAVAILABLE}
+]]></system-err>
+</testsuite>
